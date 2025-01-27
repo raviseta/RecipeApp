@@ -11,6 +11,7 @@ import Foundation
 struct RecipeListItem: View {
     
     @ObservedObject var viewModel: RecipeListItemViewModel
+    
     var body: some View {
         HStack(alignment: .center, spacing: 8) {
             
@@ -34,10 +35,6 @@ private extension RecipeListItem {
         }
     }
     
-    var imageSize: CGSize {
-        return .init(width: 80, height: 80)
-    }
-    
     @ViewBuilder
     var titleView: some View {
         VStack(alignment: .leading, spacing: 5) {
@@ -48,5 +45,9 @@ private extension RecipeListItem {
                 .foregroundStyle(Color.black)
         }
         
+    }
+    
+    var imageSize: CGSize {
+        return .init(width: 80, height: 80)
     }
 }

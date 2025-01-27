@@ -20,10 +20,7 @@ class RecipeCoordinatorImpl: RecipeCoordinator {
         let recipeListUseCase = RecipeListUseCase(recipeListRepository: recipeRepository)
         let recipeListViewModel = RecipelistViewModel(recipeListUseCase: recipeListUseCase)
         
-        let recipeListView = RecipeListView(viewModel: recipeListViewModel)
-
-        print("Type of view returned by start():", type(of: recipeListView))
-        
+        let recipeListView = RecipeListView(viewModel: recipeListViewModel)        
         return recipeListView
         
     }

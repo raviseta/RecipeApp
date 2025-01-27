@@ -11,6 +11,7 @@ import XCTest
 
 // Mock implementation of RecipeListRepositoryProtocol
 class MockRecipeListRepository: RecipeListRepositoryProtocol {
+    
     var shouldThrowError = false
     var mockRecipes: [RecipeDTO] = []
 

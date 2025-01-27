@@ -7,7 +7,7 @@
 
 import Foundation
 
-// MARK: - Receipelist
+// MARK: - ReceipeList
 struct RecipeList: Decodable {
     let recipes: [RecipeDTO]
 }

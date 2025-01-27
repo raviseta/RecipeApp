@@ -7,7 +7,6 @@
 
 import Foundation
 
-
 class RecipeListItemViewModel: Identifiable, ObservableObject {
     let id: String
     let recipeName: String
