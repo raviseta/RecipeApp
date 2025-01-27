@@ -15,28 +15,53 @@ struct RecipeListView: View {
         NavigationStack {
             
             VStack(alignment: .leading) {
+                
                 recipeListView
             }
+            .navigationTitle("Recipes")
+            .alert(for: $viewModel.alertToDisplay)
             .onAppear {
                 viewModel.getRecipeData()
             }
-            .navigationTitle("Recipes")
+            .refreshable { // For Pull to Refresh
+                viewModel.getRecipeData()
+            }
         }
     }
     
     @ViewBuilder
     var recipeListView: some View {
-        List(viewModel.recipe, id: \.id) { data in
-            switch data {
-            case .loader(_):
-                self.prepareListItem(model: .placeholder)
-                
-            case .data(let model):
-                self.prepareListItem(model: model)
-                    .padding(EdgeInsets(top: 0, leading: 12, bottom: 12, trailing: 12))
+        if viewModel.recipe.isEmpty {
+            
+            emptyStateView
+            
+        } else {
+            List(viewModel.recipe, id: \.id) { data in
+                switch data {
+                case .loader(_):
+                    self.prepareListItem(model: .placeholder)
+                        .shimmering()
+                    
+                case .data(let model):
+                    self.prepareListItem(model: model)
+                        .padding(EdgeInsets(top: 0, leading: 12, bottom: 12, trailing: 12))
+                }
             }
+            .listStyle(.plain)
         }
-        .listStyle(.plain)
+    }
+    
+    @ViewBuilder
+    var emptyStateView: some View {
+        EmptyStateView(
+            viewModel: .init(
+                image: .placeHolderImage,
+                title: applicationName,
+                message: ErrorMessage.emptyState.rawValue,
+                size: .init(width: 72, height: 72)
+            )
+        )
+        .frame(maxHeight: .infinity)
     }
     
     func prepareListItem(model: RecipeListItemViewModel) -> some View {

@@ -18,7 +18,7 @@ class APIURLTests: XCTestCase {
         super.tearDown()
     }
     
-    func testgetCarURL() throws {
+    func testgetRecipeListURL() throws {
         let url = APIURL.getReceipeList.getURL()
         XCTAssertEqual(url, "https://d3jbb8n5wk0qxi.cloudfront.net/recipes.json")
     }

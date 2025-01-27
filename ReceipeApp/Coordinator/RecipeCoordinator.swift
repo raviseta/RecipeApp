@@ -19,7 +19,6 @@ class RecipeCoordinatorImpl: RecipeCoordinator {
         let recipeRepository = RecipeListRepository(netWorkManager: NetWorkManager())
         let recipeListUseCase = RecipeListUseCase(recipeListRepository: recipeRepository)
         let recipeListViewModel = RecipelistViewModel(recipeListUseCase: recipeListUseCase)
-        
         let recipeListView = RecipeListView(viewModel: recipeListViewModel)        
         return recipeListView
         

@@ -6,7 +6,7 @@
 //
 
 
-let applicationName = "Recipe"
+let applicationName = "Recipe App"
 
 enum ErrorMessage: String {
     case invalidURL = "Invalid URL."
@@ -16,6 +16,7 @@ enum ErrorMessage: String {
     case noError = "No Error."
     case fileNotFound = "Unable to find file."
     case unknownError = "Unknown error."
+    case emptyState = "Please check after some time."
 }
 
 enum ErrorDomain: String {

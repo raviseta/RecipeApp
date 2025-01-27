@@ -16,7 +16,10 @@ struct CachedAsyncImage: View {
     let placeholder: Image
     let cache = ImageCache.shared
     
-    init(url: URL, placeholder: Image = Image.init(Images.placeHolderImage.rawValue)) {
+    init(
+        url: URL,
+        placeholder: Image = Image.init(Images.placeHolderImage.rawValue)
+    ) {
         self.url = url
         self.placeholder = placeholder
     }

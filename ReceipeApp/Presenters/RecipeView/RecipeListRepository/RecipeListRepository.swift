@@ -7,7 +7,6 @@
 
 protocol RecipeListRepositoryProtocol {
     func getRecipes(endpoint: APIURL) async throws -> [RecipeDTO]
-
 }
 
 class RecipeListRepository: RecipeListRepositoryProtocol {

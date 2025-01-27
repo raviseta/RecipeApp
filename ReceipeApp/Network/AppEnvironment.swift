@@ -7,11 +7,11 @@
 
 import Foundation
 
-enum Environment {
+enum EnvironmentType {
     case production
 }
 
 class AppEnvironment {
     static let shared = AppEnvironment()
-    var environmentType: Environment = .production
+    var environmentType: EnvironmentType = .production
 }

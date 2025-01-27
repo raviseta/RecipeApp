@@ -11,6 +11,7 @@ class RecipelistViewModel: ObservableObject {
     
     @Published var errorMessage: String?
     @Published var recipe: [CellDataSource<RecipeListItemViewModel>] = []
+    @Published var alertToDisplay: AlertData?
 
     let recipeListUseCase: RecipeListUseCaseProtocol
     
@@ -30,6 +31,7 @@ class RecipelistViewModel: ObservableObject {
             } catch {
                 await MainActor.run {
                     self.errorMessage = error.localizedDescription
+                    self.alertToDisplay = .init(error: error)
                 }
             }
         }
